@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="CGI-task.vcxproj" Id="9a19c409-f558-4a90-ac01-8c2d207e166c" />
+</Solution>
