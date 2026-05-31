@@ -21,8 +21,8 @@ class Account {
 		int get_ID() { return id; }
 		std::string get_owner() { return owner; }
 
-		int deposit(int how_much);
-		int withdraw(int how_much);
+		bool deposit(int how_much);
+		bool withdraw(int how_much);
 		void display_Info() const;
 
 };
@@ -31,18 +31,18 @@ class Bank {
 
 	private:
 		int nextid = 0;
-		std::vector<std::shared_ptr<Account>> accounts;
+		std::vector<std::unique_ptr<Account>> accounts;
 
 	public:
-		Bank();
+		Bank() {}
 
-		std::shared_ptr<Account> make_Account(std::string& owner);
-		std::shared_ptr<Account> make_Account(std::string& owner, int saldo);
-		void add_Account(std::shared_ptr<Account> account);
+		Account* make_Account(std::string& owner);
+		Account* make_Account(std::string& owner, int saldo);
+		void add_Account(std::unique_ptr<Account> account);
 		int get_ID();
 
-		std::shared_ptr<Account> get_Account(int id) const;
-		std::shared_ptr<Account> get_Account(std::string& owner) const;
+		Account* get_Account(int id) const;
+		Account* get_Account(std::string& owner) const;
 		
 };
 
