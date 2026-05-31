@@ -35,6 +35,39 @@ src/
   
     CGI-task.cpp 
 ---
+## Struktura klas 
+
+### Account 
+Odpowiada za pojedyncze konto bankowe.
+Przechowuje:
+-ID konta 
+-właściciela
+-saldo
+
+Obsługuje operacje:
+- wpłata (`deposit`)
+- wypłata (`withdraw`)
+- wyświetlanie danych (`display_Info`)
+
+---
+
+### Bank
+Zarządza listą kont.
+Odpowiada za:
+- tworzenie kont
+- wyszukiwanie kont po ID i nazwie
+- przechowywanie kont w `std::vector<std::unique_ptr<Account>>`
+
+---
+
+### BankUI
+Interfejs konsolowy użytkownika.
+Obsługuje:
+- menu
+- komunikację z użytkownikiem
+- przekazywanie operacji do Bank
+
+---
 
 ## Zastosowane technologie
 
