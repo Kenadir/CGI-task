@@ -155,7 +155,7 @@ Wybierz jedna z opcji wpisujac na wejscie przyporzadkowana liczbe:
 1: Stworz konto
 2: Wejdz na dane konto
 3: Wyjscie
->1
+> 1
 
 Prosze wprowadzic nazwe uzytkownika:
 > User
