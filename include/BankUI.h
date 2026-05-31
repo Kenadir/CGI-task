@@ -19,7 +19,7 @@ class BankUI {
 		void choices_Creating(int choice);
 		void choices_Logging(int choice, Account* account);
 		bool is_Number(const std::string& s);
-
+		int get_Int();
 };
 
 #endif

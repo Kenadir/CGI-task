@@ -54,12 +54,14 @@ Account* Bank::make_Account(std::string& owner, int saldo) {
 
 void Bank::add_Account(std::unique_ptr<Account> account) {
 
-	//sprawdzenie czy jest już w accounts takie konto
-	bool exists = std::any_of(accounts.begin(), accounts.end(), [&](const std::unique_ptr<Account>& a) {return a->get_ID() == account->get_ID();});
+	//sprawdzenie czy jest już w accounts takie konto 
+	//bool exists = std::any_of(accounts.begin(), accounts.end(), [&](const std::unique_ptr<Account>& a) {return a->get_ID() == account->get_ID();});
 	
-	if (!exists) accounts.push_back(std::move(account));
-	else std::cerr << "Nie mozna dodac takiego konta bo juz istnieje" << std::endl;
-
+	//if (!exists) 
+	accounts.push_back(std::move(account));
+	
+	//else std::cerr << "Nie mozna dodac takiego konta bo juz istnieje" << std::endl;
+	//w komentarzach niepotrzebne bo user nie podaje id
 }
 
 int Bank::get_ID() {
