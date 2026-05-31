@@ -5,6 +5,8 @@ int main()
 {
     Bank bank;
     std::string user = "User";
-    std::shared_ptr<Account> account = bank.make_Account( user);
-
+    Account* account = bank.make_Account(user);
+    account->deposit(20);
+    account->display_Info();
+    account->deposit(50);
 }
