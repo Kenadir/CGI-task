@@ -143,9 +143,11 @@
     <None Include=".gitignore" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\BankUI.h" />
     <ClInclude Include="include\Classes.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\BankUI.cpp" />
     <ClCompile Include="src\CGI-task.cpp" />
     <ClCompile Include="src\Classes.cpp" />
   </ItemGroup>
