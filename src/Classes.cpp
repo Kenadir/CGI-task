@@ -32,9 +32,7 @@ void Account::display_Info() const{
 	std::cout << "Owner: " << owner << std::endl;
 	std::cout << "Saldo: " << saldo << std::endl;
 	std::cout << "ID:    " << id << std::endl;
-	std::cout << "\nNacisnij enter...";
-	std::cin.ignore();
-	std::cin.get();
+
 }
 
 Account* Bank::make_Account(std::string& owner) {
