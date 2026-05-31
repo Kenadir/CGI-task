@@ -6,7 +6,7 @@ Projekt został napisany w C++ z wykorzystaniem programowania obiektowego oraz d
 
 ---
 
-## ⚙️ Funkcjonalności
+## Funkcjonalności
 
 - Tworzenie konta bankowego
 - Wpłata środków na konto
@@ -17,5 +17,60 @@ Projekt został napisany w C++ z wykorzystaniem programowania obiektowego oraz d
 - Obsługa błędnych danych (np. litery zamiast liczb)
 
 ---
+##
+
 
 ## Struktura projektu
+include/ 
+
+    Classes.h 
+  
+    BankUI.h
+
+src/ 
+
+    Classes.cpp
+
+    BankUI.cpp
+  
+    CGI-task.cpp 
+---
+
+## Zastosowane technologie
+
+-C++
+
+-STL (vector, memory, algorithm)
+
+-std::unique_ptr (RAII)
+
+-Obsługa wejścia i wyjścia w konsoli 
+
+---
+
+## Uruchomienie
+
+### Visual Studio:
+1.Otwórz plik '.sln'
+
+2.Zbuduj projekt(Build)
+
+3.Uruchom (Ctr + F5)
+
+---
+
+## Założenia projektu 
+
+-Program działą w konsoli 
+
+-Każde konto posiada numer, właściciela i saldo
+
+-Dane przechowywane są wyłącznie podczas działania porgramu
+
+---
+
+## Autor 
+
+Projekt wykonany jako zadanie rekrutacyjne (CGI staż-programista C++)
+
+---
