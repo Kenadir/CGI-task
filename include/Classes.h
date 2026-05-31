@@ -4,6 +4,7 @@
 #include<string> 
 #include<vector>
 #include<memory>
+#include<iostream>
 
 class Account {
 
@@ -13,9 +14,11 @@ class Account {
 		int saldo = 0; 
 	
 	public:
-		Account(); 
-		Account(int id, std::string& owner);
-		Account(int id, std::string& owner, int saldo);
+		Account(int id, std::string& owner) :id(id), owner(owner){}
+		Account(int id, std::string& owner, int saldo): id(id), owner(owner),saldo(saldo) {}
+
+		int get_ID() { return id; }
+		std::string get_owner() { return owner; }
 
 		int deposit(int how_much);
 		int withdraw(int how_much);
