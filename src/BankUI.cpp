@@ -1,11 +1,10 @@
 #include "BankUI.h"
 #include <cstdlib>
+#include <climits>
 
-void BankUI::run(Bank& bank) {
+void BankUI::run() {
 
-	bank = bank;
-
-	while (1) {
+	while (running) {
 
 		menu();
 
@@ -33,14 +32,44 @@ void BankUI::menu() {
 }
 
 void BankUI::choices(int choice) {
-
+	
+	std::string input;
+	
 	switch(choice){
 
 		case 1:
+			system("cls");
 			choices_Creating(choice);
 			break;
+
 		case 2:
 			system("cls");
+
+			
+			std::cout << "Prosze wpisac nazwe lub id konta" << std::endl;
+			std::cout << ">";
+
+			std::cin >> input;
+			
+			Account* account; 
+
+			if (is_Number(input)) {
+
+				account = bank.get_Account(std::stoi(input));
+
+			}
+			else {
+
+				account = bank.get_Account(input);
+
+			}
+
+			if (account == nullptr) {
+
+				std::cout << "Nie znaleziono konta" << std::endl;
+				return;
+
+			}
 
 			std::cout << "Wybierz jedna z opcji wpisujac na wejscie przyporzadkowana liczbe." << std::endl;
 			std::cout << "1:Wplata" << std::endl;
@@ -50,11 +79,13 @@ void BankUI::choices(int choice) {
 
 			std::cin >> choice;
 
-			choices_Logging(choice);
+			choices_Logging(choice, account);
 			break;
+
 		case 3:
-			exit(0);
+			running = false;
 			break;
+
 		default:
 			std::cerr << "Prosze wprowadzic poprawna liczbe." << std::endl;
 			break;
@@ -80,24 +111,70 @@ void BankUI::choices_Creating(int choice) {
 	std::cin >> saldo;
 	std::cout << std::endl;
 
+	while (saldo < 0) {
+
+		std::cout << "Saldo nie moze byc ujemne" << std::endl;
+		std::cout << ">";
+		std::cin >> saldo;
+		std::cout << std::endl;
+	}
+
 	bank.make_Account(name, saldo);
 
 	std::cout << "Konto zostalo utworzone.";
 
 }
 
-void BankUI::choices_Logging(int choice) {
+void BankUI::choices_Logging(int choice, Account* account ) {
 
 	switch (choice) {
 
-	case 1:
-		
-		break;
-	case 2:
-		break;
-	case 3:
-		break;
+		case 1: {
+			int amount{};
+			std::cout << "Prosze wpisac kwote do wplaty" << std::endl;
+			std::cout << ">";
+
+			std::cin >> amount;
+
+			while (!account->deposit(amount)) {
+
+				std::cout << "Kwota musi byc wieksza od 0 i mniejsza niz 2147483647" << std::endl;
+				std::cout << ">";
+				std::cin >> amount;
+
+			}
+
+			break;
+		}
+		case 2: {
+			int amount{};
+			std::cout << "Prosze wpisac kwote do wyplaty" << std::endl;
+			std::cout << ">";
+
+			std::cin >> amount;
+
+			while (!account->withdraw(amount)) {
+
+				std::cout << ">";
+				std::cin >> amount;
+
+			}
+
+			break;
+		}
+		case 3:
+			account->display_Info();
+			std::cout << "\nNacisnij enter...";
+			std::cin.ignore();
+			std::cin.get();
+			break;
 
 	}
+
+}
+
+bool BankUI::is_Number(const std::string& s) {
+
+	return !s.empty() && std::all_of(s.begin(), s.end(), ::isdigit);
 
 }

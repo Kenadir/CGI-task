@@ -2,6 +2,7 @@
 
 bool Account::deposit(int how_much) {
 
+	if (how_much <= 0 ) return false;
 	saldo += how_much;
 	return true;
 }
@@ -12,8 +13,13 @@ bool Account::withdraw(int how_much) {
 
 		std::cerr << "Nie mozna wyplacic wiecej niz kwota posiadana na koncie" << std::endl;
 		return false;
-	}
-	else {
+	
+	}else if (how_much < 1) {
+
+		std::cerr << "Kwota nie moze byc mniejsza od 1" << std::endl;
+		return false;
+
+	}else {
 
 		saldo -= how_much;
 		return true;
@@ -26,7 +32,9 @@ void Account::display_Info() const{
 	std::cout << "Owner: " << owner << std::endl;
 	std::cout << "Saldo: " << saldo << std::endl;
 	std::cout << "ID:    " << id << std::endl;
-	
+	std::cout << "\nNacisnij enter...";
+	std::cin.ignore();
+	std::cin.get();
 }
 
 Account* Bank::make_Account(std::string& owner) {

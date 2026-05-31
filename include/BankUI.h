@@ -6,16 +6,20 @@ class BankUI {
 
 	private:
 		Bank& bank;
+		bool running = true;
 
 	public:
-		void run(Bank& bank);
+
+		BankUI(Bank& bank) : bank(bank) {}
+
+		void run();
 		void menu();
 		void choices(int choice);
 
 		void choices_Creating(int choice);
-		void choices_Logging(int choice);
+		void choices_Logging(int choice, Account* account);
+		bool is_Number(const std::string& s);
+
 };
-
-
 
 #endif
