@@ -18,7 +18,7 @@ void BankUI::menu() {
 
 	int choice{};
 
-	system("cls");
+	system("cls");//wyczyszcza ekran konsoli 
 
 	std::cout << "======Menu======" << std::endl << std::endl;
 	std::cout << "Wybierz jedna z opcji wpisujac na wejscie przyporzadkowana liczbe:" << std::endl;
@@ -73,7 +73,7 @@ void BankUI::choices(int choice) {
 
 			}
 
-			std::cout << "Wybierz jedna z opcji wpisujac na wejscie przyporzadkowana liczbe." << std::endl;
+			std::cout << "Wybierz jedna z opcji wpisujac na wejscie przyporzadkowana liczbe:" << std::endl;
 			std::cout << "1:Wplata" << std::endl;
 			std::cout << "2:Wyplata" << std::endl;
 			std::cout << "3:Pokaz konto" << std::endl;
@@ -90,8 +90,8 @@ void BankUI::choices(int choice) {
 			break;
 
 		default:
-			std::cerr << "Prosze wprowadzic poprawna liczbe." << std::endl;
-			std::this_thread::sleep_for(std::chrono::seconds(1));
+			std::cerr << "Prosze wprowadzic poprawna liczbe" << std::endl;
+			std::this_thread::sleep_for(std::chrono::seconds(2));
  			break;
 
 	}
@@ -103,13 +103,21 @@ void BankUI::choices_Creating(int choice) {
 	std::string name;
 	int saldo{};
 
-	std::cout << "Prosze wprowadzic nazwe uzytkownika" << std::endl;
+	std::cout << "Prosze wprowadzic nazwe uzytkownika:" << std::endl;
 	std::cout << "> ";
 			
 	std::cin >> name;
 	std::cout << std::endl;
 
-	std::cout << "Prosze wprowadzic saldo uzytkownika(opcjonalnie)" << std::endl;
+	while (is_Number(name)) {
+
+		std::cout << "Nazwa nie moze byc liczba" << std::endl; //to dlatego zeby ID z nazwa sie nie mieszalo 
+		std::cout << "> ";
+		std::cin >> name;
+		std::cout << std::endl;
+	}
+
+	std::cout << "Prosze wprowadzic saldo uzytkownika(opcjonalnie, mozna wpisac 0):" << std::endl;
 	std::cout << "> ";
 	saldo =  get_Int();
 
@@ -182,12 +190,14 @@ void BankUI::choices_Logging(int choice, Account* account ) {
 
 }
 
+//sprawdza czy input jest numerem przydatne do walidacji 
 bool BankUI::is_Number(const std::string& s) {
 
 	return !s.empty() && std::all_of(s.begin(), s.end(), ::isdigit);
 
 }
 
+//jezeli zostanie podane bledne wejscie to naprawia i daje mozliwosc wpisania inputu do skutku 
 int BankUI::get_Int() {
 	int x;
 
