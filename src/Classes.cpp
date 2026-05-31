@@ -14,11 +14,6 @@ bool Account::withdraw(int how_much) {
 		std::cerr << "Nie mozna wyplacic wiecej niz kwota posiadana na koncie" << std::endl;
 		return false;
 	
-	}else if (how_much < 1) {
-
-		std::cerr << "Kwota nie moze byc mniejsza od 1" << std::endl;
-		return false;
-
 	}else {
 
 		saldo -= how_much;
