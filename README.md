@@ -132,6 +132,48 @@ Wybierz jedna z opcji wpisujac na wejscie przyporzadkowana liczbe:
 3: Wyjscie
 >
 ```
+---
+
+## Komendy linii poleceń 
+
+# sklonowanie repozytorium
+git clone <url-repozytorium>
+
+# sprawdzenie statusu plików
+git status
+
+# dodanie zmian do commita
+git add .
+
+# utworzenie commita
+git commit -m "dodanie systemu UI banku"
+
+# wysłanie zmian na GitHuba
+git push origin main
+
+# przejście na istniejący branch
+git checkout user-interface lub git switch user-interface
+
+# tworzenie nowego brancha i przejście na niego 
+git checkout -b user-interface lub git switch -c user-interface
+
+# pokazuje zmienione pliki
+git status  
+
+# historia commitów
+git log     
+
+# lista branchy
+git branch   
+
+# przejście na główną gałąź
+git checkout main  lub git switch main
+
+# scalanie zmian 
+git merge user-interface
+
+---
+
 ## Autor 
 
 Projekt wykonany jako zadanie rekrutacyjne (CGI-staż:programista C++)
