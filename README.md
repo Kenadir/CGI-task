@@ -17,8 +17,6 @@ Projekt został napisany w C++ z wykorzystaniem programowania obiektowego oraz d
 - Obsługa błędnych danych (np. litery zamiast liczb)
 
 ---
-##
-
 
 ## Struktura projektu
 include/ 
@@ -35,6 +33,7 @@ src/
   
     CGI-task.cpp 
 ---
+
 ## Struktura klas 
 
 ### Account 
@@ -69,6 +68,13 @@ Obsługuje:
 
 ---
 
+## Decyzje projektowe 
+- Zastosowano std::unique_ptr do zarządzania pamięcią (RAII)
+- Oddzielenie logiki biznesowej (Bank, Account) od UI (BankUI)
+- Brak trwałej bazy danych – dane istnieją tylko w runtime
+  
+---
+
 ## Zastosowane technologie
 
 -C++
@@ -88,22 +94,46 @@ Obsługuje:
 
 2.Zbuduj projekt(Build)
 
-3.Uruchom (Ctr + F5)
+3.Uruchom (Ctrl + F5)
 
 ---
 
 ## Założenia projektu 
 
--Program działą w konsoli 
+-Program działa w konsoli 
 
 -Każde konto posiada numer, właściciela i saldo
 
--Dane przechowywane są wyłącznie podczas działania porgramu
+-Dane przechowywane są wyłącznie podczas działania programu
 
 ---
 
+## Planowane Ulepszenia
+
+-Dodanie klasy enum aby switche były bardziej zrozumiałe 
+
+-Refaktoryzacja UI
+
+-GUI(np. Qt)
+
+-Lepsza walidacja wejścia użytkownika
+
+-Zmiana system("cls") lub jego abstrakcja
+
+---
+
+## Przykładowe działanie
+```
+======Menu======
+
+Wybierz jedna z opcji wpisujac na wejscie przyporzadkowana liczbe:
+1: Stworz konto
+2: Wejdz na dane konto
+3: Wyjscie
+>
+```
 ## Autor 
 
-Projekt wykonany jako zadanie rekrutacyjne (CGI staż-programista C++)
+Projekt wykonany jako zadanie rekrutacyjne (CGI-staż:programista C++)
 
 ---
