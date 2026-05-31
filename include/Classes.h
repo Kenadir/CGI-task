@@ -4,6 +4,7 @@
 #include<string> 
 #include<vector>
 #include<memory>
+#include<algorithm>
 #include<iostream>
 
 class Account {
@@ -29,13 +30,20 @@ class Account {
 class Bank {
 
 	private:
+		int nextid = 0;
 		std::vector<std::shared_ptr<Account>> accounts;
 
 	public:
 		Bank();
+
+		std::shared_ptr<Account> make_Account(std::string& owner);
+		std::shared_ptr<Account> make_Account(std::string& owner, int saldo);
+		void add_Account(std::shared_ptr<Account> account);
+		int get_ID();
+
 		std::shared_ptr<Account> get_Account(int id) const;
 		std::shared_ptr<Account> get_Account(std::string& owner) const;
-
+		
 };
 
 #endif 
