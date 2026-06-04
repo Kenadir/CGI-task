@@ -89,7 +89,7 @@ Obsługuje:
 
 -STL (vector, memory, algorithm)
 
-- std::unique_ptr (RAII) 
+-std::unique_ptr (RAII) 
 
 -Obsługa wejścia i wyjścia w konsoli 
 
